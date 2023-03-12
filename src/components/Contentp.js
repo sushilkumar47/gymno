@@ -1,72 +1,164 @@
 import React from "react";
+import { useState } from 'react';
 
-function Content() {
+
+function Contentp() {
+  const [weight, setWeight] = useState('');
+  const [height, setHeight] = useState('');
+  const [bmi, setBmi] = useState('');
+
+  const calculateBMI = () => {
+    setBmi((weight * 10000) / (height * height));
+  };
   return (
     <>
       <div>
-        <section className="">
-          <div
-            id="carouselExampleSlidesOnly"
-            className="carousel slide"
-            data-ride="carousel"
-          >
-            <div className="carousel-inner">
-              <div className="carousel-item active">
-                <img
-                  className="d-block w-100"
-                  src="Images/banner-1.jpg"
-                  alt="First slide"
-                  style={{ height: "auto" }}
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  className="d-block w-100 "
-                  src="Images/banner-1.jpg"
-                  alt="Second slide"
-                  style={{ height: "auto" }}
-                />
-              </div>
-              <div className="carousel-item">
-                <img
-                  className="d-block w-100"
-                  src="Images/banner-1.jpg"
-                  alt="Third slide"
-                  style={{ height: "auto" }}
-                />
-              </div>
-            </div>
-          </div>
+        <section className="container">
+        <div id="carouselExampleCaptions" className="carousel slide">
+  <div className="carousel-indicators">
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" className="active" aria-current="true" aria-label="Slide 1"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1" aria-label="Slide 2"></button>
+    <button type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2" aria-label="Slide 3"></button>
+  </div>
+  <div className="carousel-inner">
+    <div className="carousel-item active">
+      <img src="Images/t-4.jpg" height={600} className="d-block w-100" alt="..."/>
+      <div className="carousel-caption d-none d-md-block">
+        <h5>yoga brings flexibility</h5>
+        <p>Yoga throws all the negative energies out of the body...</p>
+        <button type="button" className="btn btn-success mx-1"><a className="nav-link " href="#gymPlans"><b>basic plan</b><span className="sr-only"></span></a></button>
+        <button type="button" className="btn btn-danger mx-1"><a className="nav-link " href="#gymPlans"><b>Silver plan</b><span className="sr-only"></span></a></button>
+        <button type="button" className="btn btn-warning mx-1"><a className="nav-link " href="#gymPlans"><b>Gold plans</b><span className="sr-only"></span></a></button>        
+      </div>
+    </div>
+    <div className="carousel-item">
+      <img src="Images/t-1.jpg" height={600} className="d-block w-100" alt="..."/>
+      <div className="carousel-caption d-none d-md-block">
+        <h5>bodybuilding is not a joke</h5>
+        <p>weight lifting is advanced level of bodybuilding that need power...</p>
+        <button type="button" className="btn btn-success mx-1"><a className="nav-link " href="#gymPlans"><b>basic plan</b><span className="sr-only"></span></a></button>
+        <button type="button" className="btn btn-danger mx-1"><a className="nav-link " href="#gymPlans"><b>Silver plan</b><span className="sr-only"></span></a></button>
+        <button type="button" className="btn btn-warning mx-1"><a className="nav-link " href="#gymPlans"><b>Gold plans</b><span className="sr-only"></span></a></button>
+      </div>
+    </div>
+    <div className="carousel-item">
+      <img src="Images/t.jpg" height={600} className="d-block w-100" alt="..."/>
+      <div className="carousel-caption d-none d-md-block">
+        <h5>weight lifting result bodybuilding</h5>
+        <p>Body is made only with the right techniques and tricks...</p>
+        <button type="button" className="btn btn-success mx-1"><a className="nav-link " href="#gymPlans"><b>basic plan</b><span className="sr-only"></span></a></button>
+        <button type="button" className="btn btn-danger mx-1"><a className="nav-link " href="#gymPlans"><b>Silver plan</b><span className="sr-only"></span></a></button>
+        <button type="button" className="btn btn-warning mx-1"><a className="nav-link " href="#gymPlans"><b>Gold plans</b><span className="sr-only"></span></a></button>
+      </div>
+    </div>
+  </div>
+  <button className="carousel-control-prev" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="prev">
+    <span className="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Previous</span>
+  </button>
+  <button className="carousel-control-next" type="button" data-bs-target="#carouselExampleCaptions" data-bs-slide="next">
+    <span className="carousel-control-next-icon" aria-hidden="true"></span>
+    <span className="visually-hidden">Next</span>
+  </button>
+</div>
         </section>
-
-        <section className="bg-light" id="about">
+        <section className="bg-light mt-5" id="Facility">
           <div className="container">
-            <div className="row">
-              <div className="col-sm-12 col-md-12">
-                <h3 className="text-center mt-4 text-secondary">About us</h3>
+            <div className="row text-center">
+              <div className="col-sm-12 col-md-12 mb-4">
+                <h3 className="text-center mt-4 text-secondary">Facility</h3>
+              </div>
+              <div className="col-md-4">
+                <div className="testimonial mb-5">
+                  <div className="avatar mx-auto">
+                    <img
+                      src="Images/equip.jpg" 
+                      width={270}
+                      className="rounded-circle z-depth-1 img-fluid"
+                      
+                    />
+                  </div>
+                  <h4 className="font-weight-bold dark-grey-text mt-4">
+                    Weight training
+                  </h4>
+                  </div>
+              </div>
+
+              <div className="col-md-4">
+                <div className="testimonial mb-5">
+                  <div className="avatar mx-auto">
+                    <img
+                      src="Images/peanut.jpg" 
+                      width={270}
+                      className="rounded-circle z-depth-1 img-fluid"
+                    />
+                  </div>
+                  <h4 className="font-weight-bold dark-grey-text mt-4">
+                    Diet plan and nutritions
+                  </h4>
+                  </div>
+              </div>
+              <div className="col-md-4">
+                <div className="testimonial mb-5">
+                  <div className="avatar mx-auto">
+                    <img
+                      src="Images/equipm1.jpg"
+                      width={270}
+                      className="rounded-circle z-depth-1 img-fluid"
+                    />
+                  </div>
+                  <h4 className="font-weight-bold dark-grey-text mt-4">
+                    Cardio
+                  </h4>
+                </div>
+              </div>
+              <div className="col-md-4">
+                <div className="testimonial mb-5">
+                  <div className="avatar mx-auto">
+                    <img
+                      src="Images/yoga.jpg" 
+                      width={270}
+                      className="rounded-circle z-depth-1 img-fluid"
+                    />
+                  </div>
+                  <h4 className="font-weight-bold dark-grey-text mt-4">
+                    Yoga training
+                  </h4>
+                  </div>
+              </div>
+
+              <div className="col-md-4">
+                <div className="testimonial mb-5">
+                  <div className="avatar mx-auto">
+                    <img
+                      src="Images/zumba.jpg" 
+                      width={270}
+                      className="rounded-circle z-depth-1 img-fluid"
+                    />
+                  </div>
+                  <h4 className="font-weight-bold dark-grey-text mt-4">
+                    zumba
+                  </h4>
+                  </div>
+              </div>
+              <div className="col-md-4">
+                <div className="testimonial mb-5">
+                  <div className="avatar mx-auto">
+                    <img
+                      src="Images/steam.jpg"
+                      width={270}
+                      className="rounded-circle z-depth-1 img-fluid"
+                    />
+                  </div>
+                  <h4 className="font-weight-bold dark-grey-text mt-4">
+                    Steam shower
+                  </h4>
+                </div>
               </div>
             </div>
-            <div className="row">
-              <p className="mt-4 mb-5">
-                Gym and Fitness was founded in 2002 as a family owned and
-                operated business specialising in supplying high-quality gym
-                equipment at great prices. Instead of being just another gym
-                equipment retailer, our founders wanted to be the best in the
-                industry and set their minds to doing so! Over the last two
-                decades Gym and Fitness has grown into one of Australia’s
-                largest online fitness equipment retailers, helping thousands of
-                customers live longer, happier and healthier lives. OUR VALUES
-                For 20 years helping customers reach their fitness goals has
-                been at the heart of what we do and why we do it! We live and
-                breathe our six core values and four brand promises — which
-                speak of our commitment to our customers, staff, the industry
-                and our business as a whole.
-              </p>
-            </div>
           </div>
-        </section>
-
-        <section className="" id="destinations">
+          </section>
+        <section className="" id="gymPlans">
           <div className="container">
             <div className="row">
               <div className="col-sm-12 col-md-12">
@@ -129,138 +221,85 @@ function Content() {
           </div>
         </section>
 
-        <section className="" id="places">
-          <div className="container">
-            <div className="col-sm-12 col-md-12 mb-4">
-              <h3 className="text-center text-secondary mt-4">
-                Places and Description
-              </h3>
-            </div>
-            <div className="accordion" id="accordionExample">
-              <div className="card">
-                <div className="card-header" id="headingOne">
-                  <h2 className="mb-0">
-                    <button
-                      className="btn btn-link"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseOne"
-                      aria-expanded="true"
-                      aria-controls="collapseOne"
-                    >
-                      Tourist Places
-                    </button>
-                  </h2>
-                </div>
-
-                <div
-                  id="collapseOne"
-                  className="collapse show"
-                  aria-labelledby="headingOne"
-                  data-parent="#accordionExample"
-                >
-                  <div className="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                    accusamus terry richardson ad squid. 3 wolf moon officia
-                    aute, non cupidatat skateboard dolor brunch. Food truck
-                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee
-                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                    helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                    Leggings occaecat craft beer farm-to-table, raw denim
-                    aesthetic synth nesciunt you probably haven't heard of them
-                    accusamus labore sustainable VHS.
+        <section>
+        <h3 className="text-center mt-4 text-secondary" id="aboutGymno">About Gymno</h3>
+          <div className="accordion" id="accordionExample">
+  <div className="accordion-item">
+    <h2 className="accordion-header" id="headingOne">
+      <button className="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+        What is Gymno? #1
+      </button>
+    </h2>
+    <div id="collapseOne" className="accordion-collapse collapse show" aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+      <div className="accordion-body">
+        <strong>Gymno is National level fitness center.</strong> It is built in 2023, We observe the fitness market and examine that most of fitness centers are offline they have no existence online . thats why we build this application and through we provide fitness training to our customer.International level training is our brand that builds us world class fitness center
+      </div>
+    </div>
+  </div>
+  <div className="accordion-item">
+    <h2 className="accordion-header" id="headingTwo">
+      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+        What is Goal of Gymno? #2
+      </button>
+    </h2>
+    <div id="collapseTwo" className="accordion-collapse collapse" aria-labelledby="headingTwo" data-bs-parent="#accordionExample">
+      <div className="accordion-body">
+        <strong>Goal of gymno is to spread awarness of fitness in india.</strong> our fitness center brings 5000 happy fitness freak to gymno in just one month and our goal is to increase this number and bring every unhealthy person to gymno center and motivate them to become a fit and slim so our india make fit
+      </div>
+    </div>
+  </div>
+  <div className="accordion-item">
+    <h2 className="accordion-header" id="headingThree">
+      <button className="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+        Why Gymno? #3
+      </button>
+    </h2>
+    <div id="collapseThree" className="accordion-collapse collapse" aria-labelledby="headingThree" data-bs-parent="#accordionExample">
+      <div className="accordion-body">
+        <strong>Gymno is first class personal training fitness center.</strong>Our fitness trainer have great experience in fitness training and our diet plan is 99.99% aprooved by many nutritions and doctors.our diet plan and trining can anyone follow even pregnet lady, elder, younger, children also. with 100% study on your body we provide you training and diet
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+<section>
+        <div>
+        <h3 className="text-center mt-4 text-secondary " id="BMI">BMI Calculator</h3>
+        <div className="row d-flex justify-content-center">
+          <div className="col-sm-5 mb-5">
+                <div className="card d-flex justify-content-center mt-4">
+                  <img className="card-img-top" src="Images/bmi.jpg" alt="" />
                   </div>
-                </div>
-              </div>
-              <div className="card">
-                <div className="card-header" id="headingTwo">
-                  <h2 className="mb-0">
-                    <button
-                      className="btn btn-link collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseTwo"
-                      aria-expanded="false"
-                      aria-controls="collapseTwo"
-                    >
-                      Best Destination
-                    </button>
-                  </h2>
-                </div>
-                <div
-                  id="collapseTwo"
-                  className="collapse"
-                  aria-labelledby="headingTwo"
-                  data-parent="#accordionExample"
-                >
-                  <div className="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                    accusamus terry richardson ad squid. 3 wolf moon officia
-                    aute, non cupidatat skateboard dolor brunch. Food truck
-                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee
-                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                    helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                    Leggings occaecat craft beer farm-to-table, raw denim
-                    aesthetic synth nesciunt you probably haven't heard of them
-                    accusamus labore sustainable VHS.
                   </div>
-                </div>
-              </div>
-              <div className="card">
-                <div className="card-header" id="headingThree">
-                  <h2 className="mb-0">
-                    <button
-                      className="btn btn-link collapsed"
-                      type="button"
-                      data-toggle="collapse"
-                      data-target="#collapseThree"
-                      aria-expanded="false"
-                      aria-controls="collapseThree"
-                    >
-                      Best Heritages
-                    </button>
-                  </h2>
-                </div>
-                <div
-                  id="collapseThree"
-                  className="collapse"
-                  aria-labelledby="headingThree"
-                  data-parent="#accordionExample"
-                >
-                  <div className="card-body">
-                    Anim pariatur cliche reprehenderit, enim eiusmod high life
-                    accusamus terry richardson ad squid. 3 wolf moon officia
-                    aute, non cupidatat skateboard dolor brunch. Food truck
-                    quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor,
-                    sunt aliqua put a bird on it squid single-origin coffee
-                    nulla assumenda shoreditch et. Nihil anim keffiyeh
-                    helvetica, craft beer labore wes anderson cred nesciunt
-                    sapiente ea proident. Ad vegan excepteur butcher vice lomo.
-                    Leggings occaecat craft beer farm-to-table, raw denim
-                    aesthetic synth nesciunt you probably haven't heard of them
-                    accusamus labore sustainable VHS.
+          <div className="col-sm-5 mb-5">
+                <div className="card mt-4">
+                  <img className="card-img-top" src="Images/bmi2.jpg" height={294} alt="" />
                   </div>
-                </div>
-              </div>
-            </div>
-          </div>
+                  </div>
+                  </div>
+      <input className="form-control my-3" id="exampleFormControlInput1" type="text" placeholder="Weight (in kg)" onChange={e => setWeight(e.target.value)} />
+      </div><div>
+      <input className="form-control my-3" id="exampleFormControlInput1" type="text" placeholder="Height (in centime)" onChange={e => setHeight(e.target.value)} />
+      <div> 
+        <div className="text-center my-1">
+      <button className="btn btn-primary" onClick={calculateBMI}>Calculate BMI</button></div>
+      </div>
+      <div className="text-center">
+      <div className="container my-2">BMI: <strong>{bmi}</strong></div></div>
+    </div>    
         </section>
-
-        <section className="bg-light mt-5" id="tourist">
+        <section className="bg-light mt-5" id="trainers">
           <div className="container">
             <div className="row text-center">
               <div className="col-sm-12 col-md-12 mb-4">
-                <h3 className="text-center mt-4 text-secondary">Trainers</h3>
+                <h3 className="text-center mt-4 text-secondary">Our Trainers</h3>
               </div>
               <div className="col-md-4">
                 <div className="testimonial mb-5">
                   <div className="avatar mx-auto">
                     <img
-                      src="https://mdbootstrap.com/img/Photos/Avatars/img%20(1).jpg"
+                      src="Images/gym4.jpg" 
+                      width={340}
                       className="rounded-circle z-depth-1 img-fluid"
                     />
                   </div>
@@ -282,7 +321,8 @@ function Content() {
                 <div className="testimonial mb-5">
                   <div className="avatar mx-auto">
                     <img
-                      src="https://mdbootstrap.com/img/Photos/Avatars/img%20(8).jpg"
+                      src="Images/gym2.jpg" 
+                      width={340}
                       className="rounded-circle z-depth-1 img-fluid"
                     />
                   </div>
@@ -302,7 +342,8 @@ function Content() {
                 <div className="testimonial mb-5">
                   <div className="avatar mx-auto">
                     <img
-                      src="https://mdbootstrap.com/img/Photos/Avatars/img%20(10).jpg"
+                      src="Images/gym.jpg"
+                      width={340}
                       className="rounded-circle z-depth-1 img-fluid"
                     />
                   </div>
@@ -321,10 +362,11 @@ function Content() {
               </div>
             </div>
           </div>
-        </section>
+          </section>
       </div>
+      
     </>
   );
 }
 
-export default Content;
+export default Contentp;

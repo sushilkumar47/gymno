@@ -1,82 +1,77 @@
-import React from 'react'
+import {React,useState} from 'react'
 import { useNavigate } from "react-router-dom";
 export default function SingnUp() {
     const navigate = useNavigate();
+    const [user,setUser]=useState({
+      name:"",email:"",password:"",cpassword:"",phone:"",goal:""
+    })
+    let name , value;
+    const handleInputs=(event)=>{
+      console.log(event)
+      name=event.target.name;
+      value=event.target.value;
+
+      setUser({...user,[name]:value});
+    }
+    console.log(user)
+    const postData= async(event)=>{
+      event.preventDefault();
+      const {name,email,password,cpassword,phone,goal} = user;
+
+      const res=await fetch("/register",{
+        method:"POST",
+        headers:{
+          "Content-Type":"application/json"
+        },
+        body:JSON.stringify({
+          name,email,password,cpassword,phone,goal
+        })
+      });
+        const data =await res.json();
+        if(data.status === 422 || !data){
+          window.alert("INvalid Registration")
+          console.log("INvalid Registration")
+        }else{
+          window.alert("Registration successfull")
+          console.log("Registration successfull")
+          navigate('/login');
+        }
+
+    }
   return (
     <>
-    <div class="text-bg-dark p-3">
-    <div className='container my-3'>
-    <button type="button" class="btn btn-link" onClick={()=>navigate("/Home")}>Home</button>
-        <h1>Register</h1>
-      <form className="row g-3 needs-validation" noValidate>
-  <div className="col-md-4">
-    <label htmlFor="validationCustom01" className="form-label">First name</label>
-    <input type="text" className="form-control" id="validationCustom01" defaultValue="" required/>
-    <div className="valid-feedback">
-      Looks good!
-    </div>
-  </div>
-  <div className="col-md-4">
-    <label htmlFor="validationCustom02" className="form-label">Last name</label>
-    <input type="text" className="form-control" id="validationCustom02" defaultValue="" required/>
-    <div className="valid-feedback">
-      Looks good!
-    </div>
-  </div>
-  <div className="col-md-4">
-    <label htmlFor="validationCustomUsername" className="form-label">Username</label>
-    <div className="input-group has-validation">
-      <span className="input-group-text" id="inputGroupPrepend">@</span>
-      <input type="text" className="form-control" id="validationCustomUsername" aria-describedby="inputGroupPrepend" required/>
-      <div className="invalid-feedback">
-        Please choose a username.
-      </div>
-    </div>
-  </div>
-  <div className="mb-8">
-    <label htmlFor="exampleInputEmail1" className="form-label">Email address</label>
-    <input type="email" className="form-control" id="exampleInputEmail3" aria-describedby="emailHelp"/>
-    <div id="emailHelp" className="form-text">put valid mail id.</div>
+    <div className="text-bg-secondary my-2 py-2">
+    <div className='container  my-4 py-0'>     
+    <div className='container my-3 py-3'>  
+    <div className='container col-5'>
+    <button type="button" className="btn btn-link" onClick={()=>navigate("/")}>Home</button>
+        <h1 className='text-center my-3'>Register</h1>
+      <form method='POST' className="row g-3 needs-validation" noValidate>
+  <div className="mb-8 ">
+    <label htmlFor="name" className="form-label">Full name</label>
+    <input type="text" name='name' value={user.name} onChange={handleInputs} autoComplete='off' className="form-control" id="name"  required/>
   </div>
   <div className="mb-3">
-    <label htmlFor="exampleInputPassword1" className="form-label">Password</label>
-    <input type="password" className="form-control" id="exampleInputPassword4"/>
+    <label htmlFor="email" className="form-label">Email address</label>
+    <input type="email" name='email' value={user.email} onChange={handleInputs} className="form-control" id="email" autoComplete='off' aria-describedby="emailHelp"/>
   </div>
-  <div className="col-md-6">
-    <label htmlFor="validationCustom03" className="form-label">City</label>
-    <input type="text" className="form-control" id="validationCustom03" required/>
-    <div className="invalid-feedback">
-      Please provide a valid city.
-    </div>
+  <div className="mb-3">
+    <label htmlFor="password" className="form-label">Password</label>
+    <input type="password" name='password' value={user.password} onChange={handleInputs} autoComplete='off' className="form-control" id="password"/>
   </div>
-  <div className="col-md-3">
-    <label htmlFor="validationCustom04" className="form-label">State</label>
-    <select className="form-select" id="validationCustom04" required>
-      <option defaultValue="">Choose...</option>
-      <option>maharashtra</option>
-      <option>goa</option>
-      <option>gujrat</option>
-      <option>tamilnadu</option>
-      <option>delhi</option>
-    </select>
-    <div className="invalid-feedback">
-      Please select a valid state.
-    </div>
+  <div className="mb-3">
+    <label htmlFor="cpassword" className="form-label">confirm Password</label>
+    <input type="password" name='cpassword' value={user.cpassword} onChange={handleInputs} autoComplete='off' className="form-control" id="cpassword"/>
   </div>
-  <div className="col-md-3">
-    <label htmlFor="validationCustom05" className="form-label">Zip</label>
-    <input type="text" className="form-control" id="validationCustom05" required/>
-    <div className="invalid-feedback">
-      Please provide a valid zip.
+  <div className="col-md-5">
+    <label htmlFor="phone" className="form-label">Mobile No</label>
+    <input type="phone" name='phone' value={user.phone} onChange={handleInputs} autoComplete='off' className="form-control" id="phone" required/>
     </div>
+  <div className="col-md-7">
+    <label htmlFor="goal" className="form-label">Goal in one sentence</label>
+    <input type="text" name='goal' value={user.goal} onChange={handleInputs} autoComplete='off' className="form-control" id="goal" required/>
     </div>
-    <div className="col-md-3">
-    <label htmlFor="validationCustom06" className="form-label">Mobile</label>
-    <input type="text" className="form-control" id="validationCustom06" required/>
-    <div className="invalid-feedback">
-      Please provide a valid number.
-    </div>
-    </div>
+    {/* <div className="column">
     <div className="form-check form-check-inline">
   <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" defaultChecked/>
   <label className="form-check-label" htmlFor="exampleRadios1">
@@ -89,9 +84,10 @@ export default function SingnUp() {
     as a Member
   </label>
 </div>
+</div>
   <div className="col-12">
     <div className="form-check">
-      <input className="form-check-input" type="checkbox" defaultValue="" id="invalidCheck" required/>
+      <input className="form-check-input" type="checkbox"  id="invalidCheck" required/>
       <label className="form-check-label" htmlFor="invalidCheck">
         Agree to terms and conditions
       </label>
@@ -99,15 +95,17 @@ export default function SingnUp() {
         You must agree before submitting.
       </div>
     </div>
-  </div>
-  <div className="col-12">
-    <button className="btn btn-primary" type="submit">Submit form</button>
+  </div> */}
+  <div className="text-center">
+    <button className="btn btn-primary" type="submit" onClick={postData} >Submit form</button>
    
   </div>
 </form>
-<div className="container my-3">
+<div className="container text-center">
 or<br /><span style={{color:'red'}} onClick={()=>navigate("/Login")}>Login</span>
 </div>
+    </div>
+    </div>
     </div>
     </div>
 
