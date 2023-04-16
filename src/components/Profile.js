@@ -1,5 +1,5 @@
 import React,{useEffect,useState} from 'react'
-import {useNavigate} from "react-router-dom"
+import {useNavigate,NavLink} from "react-router-dom"
 
 
 export default function Profile() {
@@ -57,7 +57,7 @@ const callProfilePage=async()=>{
   <div className="card-header">
     <ul className="nav nav-pills card-header-pills">
       <li className="nav-item">
-        <a className="nav-link active" href="/editProfile">Edit</a>
+        <a className="nav-link active" onClick={()=>navigate("/")}>Home</a>
       </li>
       <li className="nav-item">
       </li>
@@ -65,18 +65,17 @@ const callProfilePage=async()=>{
   </div>
   <div className="card-body">
     <p><strong>username: {userData.name}</strong></p>
-    <p><strong>password: {userData.password}</strong></p>
     <p><strong>email: {userData.email}</strong></p>
     <p><strong>phone no: {userData.phone}</strong></p>
-    <p><strong>weight:</strong></p>
-    <p><strong>height:</strong></p>
+    <p><strong>weight:{userData.weight}</strong></p>
+    <p><strong>height:{userData.height}</strong></p>
     <p><strong>batch:</strong></p>
     <p><strong>package:</strong></p>
-    <p><strong>BMI:</strong></p>
+    <p><strong>BMI:{userData.BMi}</strong></p>
     <p><strong>Goal: {userData.goal}</strong></p>
   </div>
   <div className="container text-center ">
-  <a className="nav-link" href="/">LogOut</a>
+  <NavLink className="nav-link " to="/Logout"><b>Logout</b></NavLink>
   </div>
 </div>
         </div>

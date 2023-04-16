@@ -1,11 +1,14 @@
 import React from "react";
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom'
+
 
 
 function Contentp() {
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [bmi, setBmi] = useState('');
+  const navigate = useNavigate()
 
   const calculateBMI = () => {
     setBmi((weight * 10000) / (height * height));
@@ -170,16 +173,23 @@ function Contentp() {
                 <div className="card mt-4">
                   <img className="card-img-top" src="Images/t-1.jpg" alt="" />
                   <div className="card-body">
-                    <h4 className="card-title text-secondary">Gold</h4>
+                    <h4 className="card-title text-secondary">Gold <em className="text-danger">(15000₹/ 1year)</em></h4>
                     <p className="card-text text-secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Sapiente esse necessitatibus neque sequi doloribus.
+                      this plan is limited for 1 year and services included following:
+                      <ul>
+                      <li>cardio ✔️</li>
+                      <li>yoga ✔️</li>
+                      <li>weight training ✔️</li>
+                      <li>diet plan ✔️</li>
+                      <li>Zumba ✔️</li>
+                      <li>steam shower ✔️</li>
+                      </ul>
                     </p>
                   </div>
                   <div className="card-footer">
-                    <a href="#" className="btn btn-primary">
+                    <button onClick={()=>navigate("/paymentcart", {state:{price:15000,limit: '1 Year',Package:'Gold'}})} className="btn btn-primary">
                       Buy
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -187,16 +197,23 @@ function Contentp() {
                 <div className="card mt-4">
                   <img className="card-img-top" src="Images/t-1.jpg" alt="" />
                   <div className="card-body">
-                    <h4 className="card-title text-secondary">Silver</h4>
+                    <h4 className="card-title text-secondary">Silver <em className="text-danger">(8000₹/ 6m)</em></h4>
                     <p className="card-text text-secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Sapiente esse necessitatibus neque sequi doloribus.
+                    this plan is limited for 6 month and services included following:
+                      <ul>
+                      <li>cardio ✔️</li>
+                      <li>yoga ❌</li>
+                      <li>weight training ✔️</li>
+                      <li>diet plan ✔️</li>
+                      <li>Zumba ❌</li>
+                      <li>steam shower ❌</li>
+                      </ul>
                     </p>
                   </div>
                   <div className="card-footer">
-                    <a href="#" className="btn btn-primary">
+                  <button onClick={()=>navigate("/paymentcart",{state:{price:8000,limit:"6 Months",Package:'Silver'}})} className="btn btn-primary">
                       Buy
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -204,16 +221,23 @@ function Contentp() {
                 <div className="card mt-4">
                   <img className="card-img-top" src="Images/t-1.jpg" alt="" />
                   <div className="card-body">
-                    <h4 className="card-title text-secondary">basic</h4>
+                    <h4 className="card-title text-secondary">basic <em className="text-danger">(1500₹/ 1m)</em></h4>
                     <p className="card-text text-secondary">
-                      Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                      Sapiente esse necessitatibus neque sequi doloribus.
+                    this plan is limited for 1 month and services included following:
+                      <ul>
+                      <li>cardio ✔️</li>
+                      <li>yoga ❌</li>
+                      <li>weight training ✔️ </li>
+                      <li>diet plan ❌</li>
+                      <li>Zumba ❌</li>
+                      <li>steam shower ❌</li>
+                      </ul>
                     </p>
                   </div>
                   <div className="card-footer">
-                    <a href="#" className="btn btn-primary">
+                  <button onClick={()=>navigate("/paymentcart", {state:{price:1500,limit:"1 Month",Package:'Basic'}})} className="btn btn-primary">
                       Buy
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
@@ -279,7 +303,7 @@ function Contentp() {
                   </div>
       <input className="form-control my-3" id="exampleFormControlInput1" type="text" placeholder="Weight (in kg)" onChange={e => setWeight(e.target.value)} />
       </div><div>
-      <input className="form-control my-3" id="exampleFormControlInput1" type="text" placeholder="Height (in centime)" onChange={e => setHeight(e.target.value)} />
+      <input className="form-control my-3" id="exampleFormControlInput1" type="text" placeholder="Height (in centimer)" onChange={e => setHeight(e.target.value)} />
       <div> 
         <div className="text-center my-1">
       <button className="btn btn-primary" onClick={calculateBMI}>Calculate BMI</button></div>

@@ -43,11 +43,15 @@ export default function Navbar() {
                   <li className="nav-item">
                     <NavLink className="nav-link " to="/Logout"><b>Logout</b><span className="sr-only"></span></NavLink>
                   </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link " to="/Login"><b>Login</b><span className="sr-only"></span></NavLink>
+                  </li>
+                  <li className="nav-item">
+                    <NavLink className="nav-link " to="/signup"><b>Register</b><span className="sr-only"></span></NavLink>
+                  </li>
                 </ul>
                  
               </div>
-              <button type="button" className="btn btn-warning mx-2" onClick={()=>navigate("/Login")}>Login</button>
-              <button type="button" className="btn btn-warning mx-2" onClick={()=>navigate("/signup")}>Register</button>
              </nav>
             </div>
            

@@ -8,13 +8,19 @@ import CreateProfile from './components/CreateProfile';
 import {BrowserRouter as Router ,Routes,Route} from "react-router-dom";
 import ContactUs from './components/ContactUs';
 import Logout from './components/Logout';
+import PaymentCart from './components/PaymentCart';
+import SubscriptionForm from './components/SubscriptionForm'
+// import { createContext } from 'react';
 
 
 
 
 function App() {
+  // const UserContext=createContext()
+  
   return (
     <>
+    {/* <UserContext.Provider> */}
     <Router>
     <div className="container">
       <Routes>
@@ -25,11 +31,14 @@ function App() {
         <Route path="/Profile" element={<Profile/>}/>
         <Route path="/Contact" element={<ContactUs/>}/>
         <Route path="*" element={<NotFound/>}/>
+        <Route path="/paymentCart" element={<PaymentCart/>}/>
         <Route path="/Logout" element={<Logout/>}/>
+        <Route path="/create-subscription" element={<SubscriptionForm/>}/>
       </Routes>
     </div>
     
     </Router>
+    {/* </UserContext.Provider> */}
     </>
   );
 }

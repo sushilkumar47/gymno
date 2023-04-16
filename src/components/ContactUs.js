@@ -62,6 +62,7 @@ const userContact=async()=>{
     <>
       <section>
           <div className="container my-5">
+          <button type="button" className="btn btn-link" onClick={()=>navigate("/")}>Home</button>
           <h3 className="text-center mt-4 text-secondary " id="contact">Contact Us</h3>
           <div className="mb-3">
         </div>

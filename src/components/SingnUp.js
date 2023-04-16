@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 export default function SingnUp() {
     const navigate = useNavigate();
     const [user,setUser]=useState({
-      name:"",email:"",password:"",cpassword:"",phone:"",goal:""
+      name:"",email:"",password:"",cpassword:"",phone:"",goal:"",weight:"",height:"",BMi:""
     })
     let name , value;
     const handleInputs=(event)=>{
@@ -16,7 +16,7 @@ export default function SingnUp() {
     console.log(user)
     const postData= async(event)=>{
       event.preventDefault();
-      const {name,email,password,cpassword,phone,goal} = user;
+      const {name,email,password,cpassword,phone,goal,weight,height,BMi} = user;
 
       const res=await fetch("/register",{
         method:"POST",
@@ -24,7 +24,7 @@ export default function SingnUp() {
           "Content-Type":"application/json"
         },
         body:JSON.stringify({
-          name,email,password,cpassword,phone,goal
+          name,email,password,cpassword,phone,goal,weight,height,BMi
         })
       });
         const data =await res.json();
@@ -71,31 +71,18 @@ export default function SingnUp() {
     <label htmlFor="goal" className="form-label">Goal in one sentence</label>
     <input type="text" name='goal' value={user.goal} onChange={handleInputs} autoComplete='off' className="form-control" id="goal" required/>
     </div>
-    {/* <div className="column">
-    <div className="form-check form-check-inline">
-  <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" defaultChecked/>
-  <label className="form-check-label" htmlFor="exampleRadios1">
-    as a Trainer
-  </label>
-</div>
-<div className="form-check form-check-inline">
-  <input className="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2"/>
-  <label className="form-check-label" htmlFor="exampleRadios2">
-    as a Member
-  </label>
-</div>
-</div>
-  <div className="col-12">
-    <div className="form-check">
-      <input className="form-check-input" type="checkbox"  id="invalidCheck" required/>
-      <label className="form-check-label" htmlFor="invalidCheck">
-        Agree to terms and conditions
-      </label>
-      <div className="invalid-feedback">
-        You must agree before submitting.
-      </div>
+  <div className="col-md-4">
+    <label htmlFor="weight" className="form-label">weight in kg</label>
+    <input type="text" name='weight' value={user.weight} onChange={handleInputs} autoComplete='off' className="form-control" id="weight" required/>
     </div>
-  </div> */}
+  <div className="col-md-4">
+    <label htmlFor="height" className="form-label">height in cm</label>
+    <input type="text" name='height' value={user.height} onChange={handleInputs} autoComplete='off' className="form-control" id="height" required/>
+    </div>
+  <div className="col-md-4">
+    <label htmlFor="BMi" className="form-label">BMi</label>
+    <input type="text" name='BMi' value={user.BMi} onChange={handleInputs} autoComplete='off' className="form-control" id="BMi" required/>
+    </div>
   <div className="text-center">
     <button className="btn btn-primary" type="submit" onClick={postData} >Submit form</button>
    
