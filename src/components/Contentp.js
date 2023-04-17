@@ -187,7 +187,7 @@ function Contentp() {
                     </p>
                   </div>
                   <div className="card-footer">
-                    <button onClick={()=>navigate("/paymentcart", {state:{price:15000,limit: '1 Year',Package:'Gold'}})} className="btn btn-primary">
+                    <button onClick={()=>navigate("/create-subscription", {state:{price:15000,limit: '1 Year',Package:'Gold'}})} className="btn btn-primary">
                       Buy
                     </button>
                   </div>

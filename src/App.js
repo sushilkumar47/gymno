@@ -10,6 +10,8 @@ import ContactUs from './components/ContactUs';
 import Logout from './components/Logout';
 import PaymentCart from './components/PaymentCart';
 import SubscriptionForm from './components/SubscriptionForm'
+import Success from './components/Success';
+import Cancel from './components/Cancel';
 // import { createContext } from 'react';
 
 
@@ -34,6 +36,8 @@ function App() {
         <Route path="/paymentCart" element={<PaymentCart/>}/>
         <Route path="/Logout" element={<Logout/>}/>
         <Route path="/create-subscription" element={<SubscriptionForm/>}/>
+        <Route path="/success" element={<Success/>}/>
+        <Route path="/cancel" element={<Cancel/>}/>
       </Routes>
     </div>
     
